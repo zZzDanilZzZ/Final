@@ -1,7 +1,6 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-
-export default function ContactForm(onAdd) {
+export default function ContactForm ({onAdd}) {
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
@@ -10,10 +9,9 @@ export default function ContactForm(onAdd) {
         e.preventDefault()
 
         if(!name || !phone || !email) return
-            <p className="contact-form__empty">Форма пустая!</p>
 
         onAdd({
-            id : Date.now(),
+            id: Date.now(),
             name,
             phone,
             email
@@ -25,32 +23,33 @@ export default function ContactForm(onAdd) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form className='contact-form' onSubmit={handleSubmit} action="">
             <input
-                className="contact-form__name"
+                className='contact-form__input'
+                type="text" 
                 value={name}
-                type="text" 
-                placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
+                placeholder='Name'
             />
             <input
-                className="contact-form__phone"
+                className='contact-form__input'
+                type="text" 
                 value={phone}
-                type="text" 
-                placeholder="phone"
                 onChange={(e) => setPhone(e.target.value)}
+                placeholder='Phone'
             />
             <input
-                className="contact-form__email"
-                value={email}
+                className='contact-form__input'
                 type="text" 
-                placeholder="Email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder='Email'
             />
 
-            <button className="contact-form__btn" onClick={onAdd}>
-                Add
+            <button className='contact-form__btn'>
+                Add Contact
             </button>
+
         </form>
     )
 }
