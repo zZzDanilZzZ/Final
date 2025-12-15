@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
 
 function App() {
   const [contacts, setContacts] = useState([])
@@ -23,6 +24,7 @@ function App() {
       <h1>Контактный менеджер</h1>
       
       <ContactForm onAdd={addContact}/>
+      <ContactList contact = {contact} onDelete = {deleteContact}/>
     </div>
   );
 }
